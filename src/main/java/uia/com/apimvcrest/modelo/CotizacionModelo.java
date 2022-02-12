@@ -11,6 +11,8 @@ public class CotizacionModelo {
     private int clasificacionVendedor=-1;
     private double total=0.0;
     private int entrega = -1;
+
+
     private ArrayList<ItemCotizacionModelo> items = new ArrayList<ItemCotizacionModelo>();
 
     public ArrayList<ItemCotizacionModelo> getItems() {
@@ -20,6 +22,18 @@ public class CotizacionModelo {
     public void setItems(ArrayList<ItemCotizacionModelo> items) {
         this.items = items;
     }
+
+    private ArrayList<ItemUpdateModelo> itemsUpdate = new ArrayList<ItemUpdateModelo>();
+
+    public ArrayList<ItemUpdateModelo> getItemsUpdate() {
+        return itemsUpdate;
+    }
+
+    public void setItemsUpdate(ArrayList<ItemUpdateModelo> itemsUpdate) {
+        this.itemsUpdate = itemsUpdate;
+    }
+
+
 
     public CotizacionModelo(int id, String name, String codigo, int vendedor, int clasificacionVendedor, double total, int entrega)
     {

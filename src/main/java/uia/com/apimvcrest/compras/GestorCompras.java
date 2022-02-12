@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import uia.com.apimvcrest.modelo.CotizacionModelo;
 import uia.com.apimvcrest.modelo.ItemComprasUIAModelo;
 import uia.com.apimvcrest.modelo.ItemCotizacionModelo;
+import uia.com.apimvcrest.modelo.ItemUpdateModelo;
 
 
 /**
@@ -88,7 +89,7 @@ public class GestorCompras {
                 SolicitudOrdenCompra newSolicitud = new SolicitudOrdenCompra(idCompra, "SOC-" + idCompra, "", "", 0, item.getKey(), soc.getKey());
                 newSolicitud.setItems(soc.getValue());
                 misSolicitudesOC.add(newSolicitud);
-                mapper.writeValue(new File("C:/TSU-2022/ComprasProy/SolicitudOrdenCompra-" + newSolicitud.getName() + ".json"), newSolicitud);
+                mapper.writeValue(new File("C:/TSU-2022/SolicitudOrdenCompra-" + newSolicitud.getName() + ".json"), newSolicitud);
             }
         }
 
@@ -199,6 +200,37 @@ public class GestorCompras {
     }
 
 
+    public CotizacionModelo updateCotizacion(int id) {
+        CotizacionModelo item = null;
+        for (Entry<Integer, Cotizacion> nodo : misCotizacionesOrdenCompra.entrySet())
+        {
+            if (nodo.getValue().getId() == id)
+            {
+                item = new CotizacionModelo(nodo.getValue().getId()
+                        , nodo.getValue().getName()
+                        , nodo.getValue().getDescripcion()
+                        , nodo.getValue().getVendedor()
+                        , nodo.getValue().getClasificacion()
+                        , nodo.getValue().getTotal()
+                        , nodo.getValue().getEntrega());
+                if (nodo.getValue().getItems() != null)
+                {
+                    ArrayList<ItemUpdateModelo> misItemsUpdate = new ArrayList<ItemUpdateModelo>();
+                    for (int j = 0; j < nodo.getValue().getItems().size(); j++) {
 
-
+                        ItemUpdateModelo nodoItem = new ItemUpdateModelo(
+                                nodo.getValue().getItems().get(j).getPedidoProveedor()
+                                , 80
+                                , 100
+                                , 500);
+                        misItemsUpdate.add(nodoItem);
+                    }
+                    item.setItemsUpdate(misItemsUpdate);
+                }
+                misCotizacionesOrdenCompra.get(nodo.getKey());
+                break;
+            }
+        }
+        return item;
+    }
 }

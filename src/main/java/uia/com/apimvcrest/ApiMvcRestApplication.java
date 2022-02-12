@@ -15,8 +15,12 @@ public class ApiMvcRestApplication {
         newCotizacion.print();
 
         CotizacionServicio newCotizacionServicio = new CotizacionServicio();
-        newCotizacionServicio.getCotizaciones();
+        newCotizacionServicio.updateCotizacion(100);
         newCotizacionServicio.print();
+
+
+
+
 
         SpringApplication.run(ApiMvcRestApplication.class, args);
     }

@@ -36,4 +36,7 @@ public class CotizacionServicio implements ICotizacionServicio {
         return miGestorCompras.deleteCotizacion(id);
     }
 
+    @Override
+    public CotizacionModelo updateCotizacion(int id) { return  miGestorCompras.updateCotizacion(id);
+    }
 }

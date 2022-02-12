@@ -11,6 +11,7 @@ public class ItemComprasUIAModelo
     private int cantidad;
     private String unidad="";
 
+
     public ItemComprasUIAModelo()
     {
     }
