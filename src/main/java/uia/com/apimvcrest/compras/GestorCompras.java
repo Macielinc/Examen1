@@ -38,7 +38,7 @@ public class GestorCompras {
 
         try {
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            miReporteNS = mapper.readValue(new FileInputStream("arregloItemsV1.json"), ListaReportesNivelStock.class);
+            miReporteNS = mapper.readValue(new FileInputStream("C:\\TSU-2022\\ComprasProxy\\Examen1\\arregloItemsV1.json"), ListaReportesNivelStock.class);
 
         } catch (JsonParseException e) {
             // TODO Auto-generated catch block
